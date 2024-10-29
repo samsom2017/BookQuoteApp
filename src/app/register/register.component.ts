@@ -19,8 +19,6 @@ export class RegisterComponent {
   authService = inject(AuthService);
   router = inject(Router);
   
-  
-
   form = this.fb.nonNullable.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
@@ -32,7 +30,10 @@ export class RegisterComponent {
 
     this.http.post('http://localhost:5134/register', formData)
       .subscribe({
-        next: (response) => console.log('User registered successfully:', response),
+        next: (response) => {  
+          this.router.navigateByUrl('/');
+          console.log('User registered successfully:', response)
+        },
         error: (error) => console.error('Registration error:', error)
       });
 

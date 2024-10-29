@@ -1,1 +1,26 @@
-<p>books works!</p>
+<div class="container mt-5">
+    <h2>Book List</h2>
+    <a routerLink="/books/new" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Add Book</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Published Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.publishedDate }}</td>
+          <td>
+            <a [routerLink]="['/books', book.id]" class="btn btn-info"><i class="fas fa-eye"></i> View</a>
+            <a [routerLink]="['/books/edit', book.id]" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+            <button (click)="deleteBook(book.id)" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

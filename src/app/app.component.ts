@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-//import { AuthService } from './auth/user';
+
 import { UserInterface } from './user';
 import { AuthService } from './auth/auth.service';
 
@@ -13,21 +13,26 @@ import { AuthService } from './auth/auth.service';
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
+  [x: string]: any;
   authService = inject(AuthService);
   http = inject(HttpClient);
   router = inject(Router);
 
 
   isLoggedIn(){
-    console.log(this.authService.currentUserSig())
+    console.log("samson: " + this.authService.currentUserSig())
     return this.authService.currentUserSig() != null
   }
+  
   ngOnInit(): void {
       
   }
+  
   logout(): void{
     this.authService.currentUserSig.set(null);
     console.log('logout');
+    window.localStorage.removeItem("token");
+
     this.router.navigateByUrl('/');
 
   }

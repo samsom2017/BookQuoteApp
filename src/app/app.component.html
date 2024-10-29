@@ -1,12 +1,18 @@
-<div *ngIf="!isLoggedIn()">
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-right" *ngIf="isLoggedIn()">
+      <span (click)="logout()" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</span>
+      <a routerLink="/books" class="btn btn-primary"><i class="fas fa-book"></i> Books</a>
+      <a routerLink="/quotes" class="btn btn-secondary"><i class="fas fa-quote-right"></i> Quotes</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-<div *ngIf="isLoggedIn()">
-   <span (click)="logout()">Logout</span>
-</div>
-<div *ngIf="isLoggedIn()">
-  <a routerLink="/books">Books</a>
-  <a routerLink="/quotes">Quotes</a>
-</div>
-<router-outlet></router-outlet>
