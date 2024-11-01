@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Books } from './Book';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { Books } from './Book';
 
 
 export class BookService {
+ 
 
   private url = "http://localhost:5134/api/books/";
 
@@ -21,6 +23,11 @@ export class BookService {
     const books = this.http.get<Books[]>(this.url, { headers: headers });
     return books;
   }
+ 
+ 
+  addBook(book: Books): Observable<Books> {
+    return this.http.post<Books>(this.url, book);
+}
 
   deleteBook(id: number) {
     const headers = new HttpHeaders({

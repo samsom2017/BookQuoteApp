@@ -18,9 +18,9 @@ export class BooksComponent implements OnInit {
   constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe((data: Books[]) => {
+    this.bookService.getBooks().subscribe((data) => {
       this.books = data;
-      console.log("samson", this.books);
+      //console.log("samson", this.books);
 
     });
   }
@@ -30,6 +30,20 @@ export class BooksComponent implements OnInit {
       this.books = this.books.filter(book => book.id !== id);
     });
   }
+  addBook(newBook:Books): void {
+    this.bookService.addBook(newBook).subscribe({
+      next: (addedBook) => {
+        // Add the newly added book to the books array
+        this.books.push(addedBook);
+      },
+      error: (err) => {
+        // Handle the error (e.g., show a notification or log it)
+        console.error('Error adding book:', err);
+      }
+    });
+  }
+
+  
 
 }
 

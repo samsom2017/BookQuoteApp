@@ -4,6 +4,7 @@ import { LogicComponent } from './login/login.component';
 import { BooksComponent } from './books/books.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import { StartPageComponent } from './start-page/start-page.component';
+import { AddbooksComponent } from './addbooks/addbooks.component';
 
 export const routes: Routes = [
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,6 +23,10 @@ export const routes: Routes = [
   {
     path: 'books',
     component: BooksComponent,
+  },
+  {
+    path: 'books/new',      // Add this route to create a new book
+    component: AddbooksComponent
   },
   {
     path: 'quotes',
