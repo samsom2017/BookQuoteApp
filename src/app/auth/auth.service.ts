@@ -18,5 +18,16 @@ export class AuthService {
      addBook(book: Books): Observable<Books> {
        return this.http.post<Books>(this.apiUrl, book);
      }
+     initializeAuthState() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        this.currentUserSig.set({
+          accessToken: token,
+          tokenType: '',
+          expiresIn: '',
+          refreshToken: ''
+        });
+      }
+    }
 }
 

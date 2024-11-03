@@ -23,9 +23,10 @@ export class AppComponent implements OnInit {
     console.log("samson: " + this.authService.currentUserSig())
     return this.authService.currentUserSig() != null
   }
+
   
   ngOnInit(): void {
-  
+    this.authService.initializeAuthState();
       
   }
   

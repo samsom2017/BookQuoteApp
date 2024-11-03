@@ -1,26 +1,83 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to BookQuote</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            margin-top: 20px;
+            padding: 40px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text within the hero section */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Larger font size for the heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        .btn {
+            padding: 10px 20px; /* Add padding to buttons */
+            font-size: 1.1rem; /* Slightly larger font size for buttons */
+            margin: 5px; /* Space between buttons */
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Adjust heading size for smaller screens */
+            }
+
+            .hero {
+                padding: 20px; /* Less padding on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body> 
+    <!-- class="container"  class="row" class="col-md-6 col-sm-12" -->
+<div class="container">
+    <div class="row hero">
+        <div class="col-12">
+            <h1>Welcome To Book and Quote</h1>
+            <a routerLink="/login" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a routerLink="/register" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Register</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,3 +114,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+ -->
