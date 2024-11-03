@@ -37,47 +37,10 @@ export class RegisterComponent {
         error: (error) => console.error('Registration error:', error)
       });
 
-    // this.http
-    //   .post<{ user: UserInterface }>('https://api.realworld.io/api/users', {
-    //     email: this.form.get("email"),
-    //     password: this.form.get("password")
-    //   })
-    //   .subscribe((response) => {
-    //     console.log('response', response);
-
-    //     localStorage.setItem('token', response.user.token);
-    //     this.authService.currentUserSig.set(response.user);
-    //     this.router.navigateByUrl('/');
-    //   });
+   
     
     }
 }
 
 
 
-/*
-
- fb = inject(FormBuilder);
-  http = inject(HttpClient);
-  authService = inject(AuthService);
-  router = inject(Router);
-
-  form = this.fb.nonNullable.group({
-    username: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required],
-  });
-
-  onSubmit(): void {
-    this.http
-      .post<{ user: UserInterface }>('https://api.realworld.io/api/users', {
-        user: this.form.getRawValue(),
-      })
-      .subscribe((response) => {
-        console.log('response', response);
-        localStorage.setItem('token', response.user.token);
-        this.authService.currentUserSig.set(response.user);
-        this.router.navigateByUrl('/');
-      });
-  }
-*/

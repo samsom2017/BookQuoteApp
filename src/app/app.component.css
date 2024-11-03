@@ -1,4 +1,18 @@
-.btn {
+
+/* app.component.css */
+.dark-theme {
+  background-color: #333;
+  color: #fff;
+}
+
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+
+
+/* .btn {
     margin-left: 10px;
   }
- 
+  */

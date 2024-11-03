@@ -44,13 +44,7 @@ export class BooksComponent implements OnInit {
     });
   }
   
-  // logout(): void{
-  //   console.log('logout');
-  //   window.localStorage.removeItem("token");
-
-  //   this.router.navigateByUrl('/');
-
-  // }
+ 
   
 
 }
@@ -60,35 +54,3 @@ export class BooksComponent implements OnInit {
 
 
 
-/*
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../book.service';
-import { Book } from '../book.model';
-
-@Component({
-  selector: 'app-books',
-  templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
-})
-export class BooksComponent implements OnInit {
-  books: Book[] = [];
-
-  constructor(private bookService: BookService) {}
-
-  ngOnInit(): void {
-    this.bookService.getBooks().subscribe((data: Book[]) => {
-      this.books = data;
-    });
-  }
-
-  deleteBook(id: number): void {
-    this.bookService.deleteBook(id).subscribe(() => {
-      this.books = this.books.filter(book => book.id !== id);
-    });
-  }
-}
-
-
-
-
-*/
