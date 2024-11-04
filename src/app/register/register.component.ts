@@ -5,6 +5,7 @@ import { UserInterface } from '../user';
 
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent {
   http = inject(HttpClient);
   authService = inject(AuthService);
   router = inject(Router);
-  
+  private apiUrl = environment.apiUrl; 
+
   form = this.fb.nonNullable.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
@@ -28,7 +30,7 @@ export class RegisterComponent {
 
     const formData = this.form.value;
 
-    this.http.post('http://localhost:5134/register', formData)
+    this.http.post(`${this.apiUrl}/register`, formData)
       .subscribe({
         next: (response) => {  
           this.router.navigateByUrl('/');
