@@ -3,6 +3,6 @@ export const environment = {
      // Replace with your development API URL
      //Run your .NET application in Visual Studio
      //http://localhost:5134/swagger/index.html
-    apiUrl: 'https://bookquoteapi.onrender.com/login' 
+    apiUrl: 'https://bookquoteapi.onrender.com' 
   };
   
