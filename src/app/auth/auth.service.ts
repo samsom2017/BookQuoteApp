@@ -17,9 +17,21 @@ export class AuthService {
   private apiUrl = environment.apiUrl ;
      constructor(private http: HttpClient) { }
 
-     addBook(book: Books): Observable<Books> {
+    /*  addBook(book: Books): Observable<Books> {
        return this.http.post<Books>(`${this.apiUrl}/api/books`, book);
-     }
+     } */
+       addBook(book: Books): Observable<Books> {
+        const token = localStorage.getItem('token'); // Get token from localStorage
+        const headers = {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        };
+      
+        return this.http.post<Books>(`${this.apiUrl}/api/books`, book, { headers });
+      }
+
+
+
      initializeAuthState() {
       const token = localStorage.getItem('token');
       if (token) {
