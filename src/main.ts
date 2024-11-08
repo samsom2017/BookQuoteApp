@@ -8,12 +8,12 @@ import { provideRouter } from '@angular/router';
 
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
-import { authTokenInterceptor } from './app/auth-interceptor'; // Updated import
+import { AuthTokenInterceptor } from './app/auth-interceptor'; // Updated import
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authTokenInterceptor])), // Use the function-based interceptor
+    provideHttpClient(withInterceptors([AuthTokenInterceptor])), // Use the function-based interceptor
   ],
 }).catch((err) => console.error(err));
 
