@@ -4,7 +4,7 @@ export const environment = {
      //Run your .NET application in Visual Studio
      //http://localhost:5134/swagger/index.html
      //https://bookquoteapi.onrender.com/
-    apiUrl: 'https://bookquoteapi.onrender.com/register' 
+    apiUrl: 'https://bookquoteapi.onrender.com' 
   
   };
   
