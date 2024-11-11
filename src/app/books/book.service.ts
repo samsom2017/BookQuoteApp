@@ -1,7 +1,7 @@
 // src/app/books/book.service.ts
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Books } from './Book'; // Correct import path
 import { environment } from '../../environments/environment';
@@ -34,6 +34,10 @@ export class BookService {
   }
 
   getBooks(): Observable<Books[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.get<Books[]>(`${this.apiUrl}/api/books`);
   }
 }
