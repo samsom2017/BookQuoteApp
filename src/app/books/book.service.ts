@@ -38,7 +38,7 @@ export class BookService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get<Books[]>(`${this.apiUrl}/api/books`);
+    return this.http.get<Books[]>(`${this.apiUrl}/api/books`, { headers });
   }
 }
 
