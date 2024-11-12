@@ -10,7 +10,7 @@ import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router'
   standalone: true,
   imports: [ RouterModule, RouterLink,RouterOutlet, CommonModule], 
   templateUrl: './books.component.html',
-  styleUrl: './books.component.css'
+  styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
     books: Books[] = [];
@@ -18,6 +18,31 @@ export class BooksComponent implements OnInit {
 
   constructor(private bookService: BookService) {}
 
+
+  ngOnInit(): void {
+    this.bookService.getBooks().subscribe({
+      next: (data) => {
+        this.books = data;
+      },
+      error: (err) => {
+        console.error('Error fetching books:', err);
+        // Optionally show a user-friendly message
+      }
+    });
+  }
+  
+  deleteBook(id: number): void {
+    this.bookService.deleteBook(id).subscribe({
+      next: () => {
+        this.books = this.books.filter(book => book.id !== id);
+      },
+      error: (err) => {
+        console.error('Error deleting book:', err);
+        // Optionally show a user-friendly message
+      }
+    });
+  }
+  /*
   ngOnInit(): void {
     
     this.bookService.getBooks().subscribe((data) => {
@@ -33,6 +58,24 @@ export class BooksComponent implements OnInit {
       this.books = this.books.filter(book => book.id !== id);
     });
   }
+  */
+
+
+
+  addBook(newBook: Books): void {
+    const token = localStorage.getItem('token');
+    console.log('Adding book with token:', token);  // Debugging token
+    this.bookService.addBook(newBook).subscribe({
+      next: (addedBook) => {
+        this.books.push(addedBook);
+      },
+      error: (err) => {
+        console.error('Error adding book:', err);
+      }
+    });
+  }
+
+  /*
   addBook(newBook:Books): void {
     this.bookService.addBook(newBook).subscribe({
       next: (addedBook) => {
@@ -45,6 +88,7 @@ export class BooksComponent implements OnInit {
       }
     });
   }
+    */
   
  }
 
