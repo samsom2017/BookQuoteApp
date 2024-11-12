@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { UserInterface } from '../user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Books } from '../books/Book';
 import { environment } from '../../environments/environment';
@@ -22,11 +22,10 @@ export class AuthService {
      } */
        addBook(book: Books): Observable<Books> {
         const token = localStorage.getItem('token'); // Get token from localStorage
-        const headers = {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        };
-      
+       const headers = new HttpHeaders({
+       'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+  });
         return this.http.post<Books>(`${this.apiUrl}/api/books`, book, { headers });
       }
 
