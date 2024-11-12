@@ -20,9 +20,17 @@ export class BookService {
     return this.http.get<Books>(`${this.apiUrl}/api/books/${id}`);
   }
 
-  // Add other methods like addBook, updateBook, deleteBook as needed
+  // Method to add a book with JWT token in headers
   addBook(book: Books): Observable<Books> {
-    return this.http.post<Books>(`${this.apiUrl}/api/books`, book);
+    const token = localStorage.getItem('token'); // Retrieve token from local storage
+
+    // Create headers and include the Authorization token
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    // Make the HTTP POST request with headers
+    return this.http.post<Books>(`${this.apiUrl}/api/books`, book, { headers });
   }
 
   updateBook(book: Books): Observable<Books> {

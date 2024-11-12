@@ -64,7 +64,11 @@ export class BooksComponent implements OnInit {
 
   addBook(newBook: Books): void {
     const token = localStorage.getItem('token');
-    console.log('Adding book with token:', token);  // Debugging token
+    console.log('Adding book with token:', token);  // Debugging 
+
+    // Set up headers to include the JWT token
+    const headers = { 'Authorization': `Bearer ${token}` };
+
     this.bookService.addBook(newBook).subscribe({
       next: (addedBook) => {
         this.books.push(addedBook);
