@@ -7,6 +7,7 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { AddbooksComponent } from './addbooks/addbooks.component';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
 
+
 export const routes: Routes = [
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
@@ -41,6 +42,7 @@ export const routes: Routes = [
   },
 ];
 
+
 /*
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -55,7 +57,8 @@ import { QuoteDetailComponent } from './quote/quote-detail/quote-detail.componen
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '',
+    component: StartPageComponent, },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'books', component: BookListComponent, canActivate: [AuthGuard] },

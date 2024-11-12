@@ -31,18 +31,21 @@ throw new Error('Method not implemented.');
   });
 isDarkTheme: any;
 
-  onSubmit(): void {
-    const formData = this.form.value;
+onSubmit(): void {
+  const formData = this.form.value;
 
-
-    this.http.post<UserInterface>(`${this.apiUrl}/login`, formData)
-      .subscribe((response) => {
-        console.log('response', response.accessToken);
-        localStorage.setItem('token', response.accessToken);
-        this.authService.currentUserSig.set(response);
-        this.router.navigateByUrl('/books');
-      });
-  }
+  this.http.post<UserInterface>(`${this.apiUrl}/login`, formData).subscribe({
+    next: (response) => {
+      console.log('response', response.accessToken);
+      localStorage.setItem('token', response.accessToken);
+      this.authService.currentUserSig.set(response);
+      this.router.navigateByUrl('/books');
+    },
+    error: (error) => {
+      console.error('Login failed', error);
+    }
+  });
+}
 
 }
 
