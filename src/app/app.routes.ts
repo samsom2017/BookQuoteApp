@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LogicComponent } from './login/login.component';
 import { BooksComponent } from './books/books.component';
@@ -6,6 +6,7 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { AddbooksComponent } from './addbooks/addbooks.component';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
+import { NgModule } from '@angular/core';
 
 
 export const routes: Routes = [
@@ -41,7 +42,11 @@ export const routes: Routes = [
     component: QuotesComponent,
   },
 ];
-
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { useHash: false })], // Ensure useHash is set to false for HTML5 routing
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 
 /*
 import { NgModule } from '@angular/core';
