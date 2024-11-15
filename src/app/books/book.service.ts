@@ -23,10 +23,10 @@ export class BookService {
   // Method to add a book with JWT token in headers
   addBook(book: Books): Observable<Books> {
     const token = localStorage.getItem('token'); // Retrieve token from local storage
-
     // Create headers and include the Authorization token
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
     });
 
     // Make the HTTP POST request with headers
