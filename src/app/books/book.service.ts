@@ -42,9 +42,10 @@ export class BookService {
   }
 
   getBooks(): Observable<Books[]> {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token'); // Get token from localStorage
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
+    'Authorization': `Bearer ${token}`,
+     'Content-Type': 'application/json'
     });
     return this.http.get<Books[]>(`${this.apiUrl}/api/books`, { headers });
   }

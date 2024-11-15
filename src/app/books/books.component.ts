@@ -23,6 +23,7 @@ export class BooksComponent implements OnInit {
     this.bookService.getBooks().subscribe({
       next: (data) => {
         this.books = data;
+        console.log("Books fetched successfully:", this.books);
       },
       error: (err) => {
         console.error('Error fetching books:', err);
@@ -62,22 +63,17 @@ export class BooksComponent implements OnInit {
 
 
 
-  addBook(newBook: Books): void {
-    const token = localStorage.getItem('token');
-    console.log('Adding book with token:', token);  // Debugging 
-
-    // Set up headers to include the JWT token
-    const headers = { 'Authorization': `Bearer ${token}` };
-
-    this.bookService.addBook(newBook).subscribe({
-      next: (addedBook) => {
-        this.books.push(addedBook);
-      },
-      error: (err) => {
-        console.error('Error adding book:', err);
-      }
-    });
-  }
+  // addBook(newBook: Books): void {
+  //   this.bookService.addBook(newBook).subscribe({
+  //     next: () => {
+  //       console.log("Book added successfully");
+  //       this.router.navigate(['/books']);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error adding book:', err);
+  //     }
+  //   });
+  // }
 
   /*
   addBook(newBook:Books): void {
