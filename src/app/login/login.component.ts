@@ -37,6 +37,7 @@ onSubmit(): void {
   this.http.post<UserInterface>(`${this.apiUrl}/login`, formData).subscribe({
     next: (response) => {
       console.log('response', response.accessToken);
+      // Save the token after login
       localStorage.setItem('token', response.accessToken);
       this.authService.currentUserSig.set(response);
       this.router.navigateByUrl('/books');
@@ -48,6 +49,8 @@ onSubmit(): void {
 }
 
 }
+
+
 
 
 

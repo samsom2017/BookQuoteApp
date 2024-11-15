@@ -38,6 +38,7 @@ export class AddbooksComponent implements OnInit {
         title: this.bookForm.value.title,
         author: this.bookForm.value.author,
         publishedDate: this.bookForm.value.publishedDate
+        
       };
 
       this.bookService.addBook(newBook).subscribe({

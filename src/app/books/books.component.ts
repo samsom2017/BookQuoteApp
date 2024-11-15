@@ -22,7 +22,9 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
     this.bookService.getBooks().subscribe({
       next: (data) => {
+        
         this.books = data;
+        
       },
       error: (err) => {
         console.error('Error fetching books:', err);
@@ -30,6 +32,11 @@ export class BooksComponent implements OnInit {
       }
     });
   }
+  
+ 
+   
+      
+
   
   deleteBook(id: number): void {
     this.bookService.deleteBook(id).subscribe({
