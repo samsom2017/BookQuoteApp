@@ -31,7 +31,15 @@ throw new Error('Method not implemented.');
   });
 isDarkTheme: any;
 
+  
+ngOnInit(): void {
+  this.authService.initializeAuthState();
+    
+}
+
+
 onSubmit(): void {
+  
   const formData = this.form.value;
 
   this.http.post<UserInterface>(`${this.apiUrl}/login`, formData).subscribe({
