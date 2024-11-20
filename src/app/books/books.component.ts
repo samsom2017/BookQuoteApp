@@ -16,7 +16,7 @@ export class BooksComponent implements OnInit {
     books: Books[] = [];
     router = inject(Router);
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService,private http: HttpClient) {}
 
 
   ngOnInit(): void {
