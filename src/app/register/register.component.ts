@@ -33,7 +33,7 @@ export class RegisterComponent {
     this.http.post(`${this.apiUrl}/register`, formData)
       .subscribe({
         next: (response) => {  
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/start-page');
           console.log('User registered successfully:', response)
         },
         error: (error) => console.error('Registration error:', error)
